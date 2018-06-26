@@ -1,0 +1,27 @@
+<!--pages/query/query.wxml-->
+<view class="container1">
+  <view class="cells">
+    <template is="item" data="{{...titles}}"/>
+    <block wx:for="{{records}}" wx:key="index">
+      <template is="item" data="{{...item}}"/>
+    </block>
+  </view>
+</view>
+
+<template name="item">
+  <view class="cell">
+    <view class="rec date">
+      <text>{{date}}</text>
+    </view>
+    <view class="rec item">
+      <text>{{item}}</text>
+    </view>
+    <view class="rec change">
+      <text>{{change}}</text>
+    </view>
+    <view class="rec remain">
+      <text>{{remain}}</text>
+    </view>
+  </view>
+  <view class="separator"/>
+</template>

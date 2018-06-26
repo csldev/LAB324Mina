@@ -1,0 +1,16 @@
+<!--logs.wxml-->
+<view class="container">
+  
+  <view class="input-view">
+    <view class="titles">
+      <view class="title"><text>用户名</text></view>
+      <view class="title"><text>密码</text></view>
+    </view>
+    <view class="inputs">
+      <input class="input" bindinput="account"/>
+      <input class="input" bindinput="password"/>
+    </view>
+  </view>
+
+  <button class="btn-login" catch:tap="onLoginTapped">登录</button>
+</view>

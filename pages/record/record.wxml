@@ -1,0 +1,20 @@
+<!--pages/record/record.wxml-->
+<view class="container">
+  <view class="input-view">
+    <view class="titles">
+      <view class="title">日期</view>
+      <view class="title">项目</view>
+      <view class="title">金额</view>
+    </view>
+    <view class="inputs">
+      <input class="input" bindinput="onDateTapped"/>
+      <input class="input" bindinput="onItemTapped"/>
+      <input class="input" bindinput="onChangeTapped"/>
+    </view>
+  </view>
+  <view class="btn-view">
+    <button class="btn" catch:tap="onCommitTapped"><text>COMMIT</text></button>
+    <button class="btn" catch:tap="onResetTapped"><text>RESET</text></button>
+    <button class="btn" catch:tap="onQueryTapped"><text>QUERY</text></button>
+  </view>
+</view>

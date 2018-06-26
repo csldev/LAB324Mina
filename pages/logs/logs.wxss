@@ -1,0 +1,22 @@
+
+.input-view{
+  display: flex;
+  flex-direction: row;
+  margin-top: 200rpx;
+}
+
+.title{
+  margin-top: 20rpx;
+}
+
+.input{
+  background-color:#eee;
+  width:400rpx;
+  height:40rpx;
+  margin-top: 20rpx;
+  margin-left: 10rpx;
+}
+
+.btn-login{
+  margin-top: 50rpx;
+}
