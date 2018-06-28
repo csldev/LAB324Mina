@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/logs/logs",
     "pages/record/record",
+    "pages/logs/logs",
     "pages/query/query"
   ],
   "window": {

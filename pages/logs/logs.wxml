@@ -7,8 +7,8 @@
       <view class="title"><text>密码</text></view>
     </view>
     <view class="inputs">
-      <input class="input" bindinput="account"/>
-      <input class="input" bindinput="password"/>
+      <input class="input" bindinput="onAccountInputTapped"/>
+      <input class="input" bindinput="onPasswordInputTapped" type="password"/>
     </view>
   </view>
 
