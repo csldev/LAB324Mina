@@ -1,3 +1,6 @@
 {
-  "navigationBarTitleText":"查询"
+  "navigationBarTitleText": "查询",
+  "usingComponents": {
+    "time-picker": "/components/time-picker/time-picker"
+  }
 }

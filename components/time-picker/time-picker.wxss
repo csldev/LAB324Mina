@@ -1,0 +1,75 @@
+/* components/time-picker/time-picker.wxss */
+
+.container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.mask {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    opacity: 0.7;
+    z-index: 100;
+}
+
+.rect-view {
+    z-index: 300;
+    position: absolute;
+    top: 30%;
+    width: 600rpx;
+    padding: 20rpx;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.items {
+    position: relative;
+    margin-top: 0;
+    display: flex;
+    flex-direction: column;
+    width: 170rpx;
+    height: 600rpx;
+    background-color: #fff;
+}
+
+.text {
+    width: 170rpx;
+    height: 120rpx;
+    border: 2rpx #333 solid;
+    color: #111;
+    font-size: 40rpx;
+    text-align: center;
+    line-height: 120rpx;
+}
+
+.unit {
+    color: #111;
+    font-size: 40rpx;
+    text-align: center;
+    line-height: 120rpx;
+    margin-left: 10rpx;
+}
+
+.icon {
+    width: 70rpx;
+    height: 70rpx;
+    margin-top: 30rpx;
+}
+
+.background {
+    z-index: 200;
+    position: absolute;
+    width: 650rpx;
+    height: 160rpx;
+    background-color: #fff;
+    border-radius: 6rpx;
+    top: 30%;
+}

@@ -7,7 +7,7 @@
       <view class="title">金额</view>
     </view>
     <view class="inputs">
-      <input class="input" bindinput="onDateTapped" />
+      <input class="input" bindinput="onDateTapped" value="{{date}}"/>
       <input class="input" bindinput="onItemTapped" />
       <input class="input" bindinput="onChangeTapped" />
     </view>

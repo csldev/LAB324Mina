@@ -12,20 +12,14 @@ App({
     this.sessionData.sessionId = this._getSessionDataFromStorage();
   },
   checkLogin() {
-    this.request.get('/login', {
-      mode: "checkLogin",
-      sessionId: this.sessionData.sessionId,
-    }).then((res) => {
-      console.log(res);
-    }, (rej) => {
-      if(rej.statusCode === 401){
-        this._loginFail()
-        this.showToast('回话已过期！请重新登陆');
-      }
-    })
+    if (this.sessionData.sessionId) {
+      return true;
+    } else {
+      this.loginFail();
+    }
   },
 
-  _loginFail() {
+  loginFail() {
     wx.reLaunch({
       url: '/pages/logs/logs'
     })
@@ -41,7 +35,7 @@ App({
       this._setSessionData(res.data, callback)
     }, () => {
       wx.hideLoading();
-      this.showToast('请求失败，请检查网络')
+      this.showToast("登陆失败！请检查网络")
     })
   },
 
@@ -54,7 +48,6 @@ App({
     } catch (e) {
       this.showToast('登陆失败！请重试')
     }
-
   },
 
 

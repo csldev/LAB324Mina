@@ -1,0 +1,40 @@
+<!-- components/time-picker/time-picker.wxml -->
+<view class="container">
+    <view class="mask" catch:tap="hideModal"/>
+    <view class="background" />
+    <view class="rect-view">
+        <view style="display:flex;flex-direction:column">
+            <view class="text">
+                <text>{{currentYear}}</text>
+            </view>
+            <scroll-view class="items" scroll-y scroll-into-view="{{toViewYear}}" wx:if="{{openYearList}}">
+                <block wx:for="{{years}}" wx:key="index">
+                    <view id="year{{item}}" class="text" catch:tap="onYearTapped" data-year="{{item}}">
+                        <text>{{item}}</text>
+                    </view>
+                </block>
+            </scroll-view>
+        </view>
+        <image class="icon" src="{{openYearList?'/res/close.png':'/res/open.png'}}" mode='aspectFit' catch:tap="onYIconTapped" />
+        <view class="unit">
+            <text>年</text>
+        </view>
+        <view style="width:40rpx" />
+        <view style="display:flex;flex-direction:column">
+            <view class="text">
+                <text>{{currentMonth}}</text>
+            </view>
+            <scroll-view class="items" scroll-y scroll-into-view="{{toViewMonth}}" wx:if="{{openMonthList}}">
+                <block wx:for="{{months}}" wx:key="index">
+                    <view id="month{{item}}" class="text" catch:tap="onMonthTapped" data-month="{{item}}">
+                        <text>{{item}}</text>
+                    </view>
+                </block>
+            </scroll-view>
+        </view>
+        <image class="icon" src="{{openMonthList?'/res/close.png':'/res/open.png'}}" mode='aspectFit' catch:tap="onMIconTapped" />
+        <view class="unit">
+            <text>月</text>
+        </view>
+    </view>
+</view>

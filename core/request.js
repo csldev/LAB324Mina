@@ -59,7 +59,7 @@ export default class Request {
     const app = getApp();
     const server = app.settings.SERVER_ADDRESS;
     // const userAgent = app.settings.MP_USER_AGENT;
-    const minaCookieString = `sessionId=${app.sessionData.minaCookie||""}`;
+    const sessionIdString = `sessionId=${app.sessionData.sessionId||""}`;
     // if (app.sessionData.minaCookie) {
       // const {
       //   kSessionId, qhdi, qhssokey, qhssokeyid, qhssokeycheck,
@@ -86,9 +86,9 @@ export default class Request {
         method: method,
         data: data,
         header: {
-          'content-type': 'application/json',
+          'content-type': 'application/x-www-form-urlencoded;charset=utf-8',
           // APIVERS: 'com.qunhe.instdeco.service.yun-yulei',
-          Cookie: minaCookieString,
+          Cookie: sessionIdString,
           // 'MP-User-Agent': userAgent,
           ...header,
         },
@@ -121,6 +121,8 @@ export default class Request {
             // getApp().event.emit(getApp().eventNames.LOGOUT);
             // getApp().router.navigateTo(getApp().router.nativePage('login-first'));
             reject(response);
+            app.loginFail();
+            app.showToast("会话已过期！请重新登陆")
           } else {
             reject(response.statusCode);
           }
