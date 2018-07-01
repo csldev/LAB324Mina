@@ -40,14 +40,16 @@ Page({
       })
       wx.hideLoading();
     }, (rej) => {
-      if (rej === 417) {
+      if (rej.statusCode === 417) {
         app.showToast("请求的数据不存在")
         this.setData({
           records: []
         })
+      } else if (rej.statusCode === 401) {
+        console.log('session time out')
       } else {
-        app.showToast("请求失败！请检查网络");
         wx.hideLoading();
+        app.showToast("请求失败！请检查网络");
         setTimeout(() => {
           wx.navigateBack();
         }, 1000);

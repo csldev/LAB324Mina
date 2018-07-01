@@ -61,24 +61,24 @@ export default class Request {
     // const userAgent = app.settings.MP_USER_AGENT;
     const sessionIdString = `sessionId=${app.sessionData.sessionId||""}`;
     // if (app.sessionData.minaCookie) {
-      // const {
-      //   kSessionId, qhdi, qhssokey, qhssokeyid, qhssokeycheck,
-      // } = app.sessionData.minaCookie;
-      // if (kSessionId) {
-      //   minaCookieString += `KSESSIONID=${kSessionId};`;
-      // }
-      // if (qhdi) {
-      //   minaCookieString += `qhdi=${qhdi};`;
-      // }
-      // if (qhssokey) {
-      //   minaCookieString += `qhssokey=${qhssokey};`;
-      // }
-      // if (qhssokeyid) {
-      //   minaCookieString += `qhssokeyid=${qhssokeyid};`;
-      // }
-      // if (qhssokeycheck) {
-      //   minaCookieString += `qhssokeycheck=${qhssokeycheck};`;
-      // }
+    // const {
+    //   kSessionId, qhdi, qhssokey, qhssokeyid, qhssokeycheck,
+    // } = app.sessionData.minaCookie;
+    // if (kSessionId) {
+    //   minaCookieString += `KSESSIONID=${kSessionId};`;
+    // }
+    // if (qhdi) {
+    //   minaCookieString += `qhdi=${qhdi};`;
+    // }
+    // if (qhssokey) {
+    //   minaCookieString += `qhssokey=${qhssokey};`;
+    // }
+    // if (qhssokeyid) {
+    //   minaCookieString += `qhssokeyid=${qhssokeyid};`;
+    // }
+    // if (qhssokeycheck) {
+    //   minaCookieString += `qhssokeycheck=${qhssokeycheck};`;
+    // }
     // }
     return new Promise((resolve, reject) => {
       wx.request({
@@ -122,9 +122,11 @@ export default class Request {
             // getApp().router.navigateTo(getApp().router.nativePage('login-first'));
             reject(response);
             app.loginFail();
-            app.showToast("会话已过期！请重新登陆")
+            setTimeout(() => {
+              app.showToast("会话已过期！请重新登陆")
+            }, 300);
           } else {
-            reject(response.statusCode);
+            reject(response);
           }
         },
         fail: () => {

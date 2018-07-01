@@ -33,9 +33,13 @@ App({
       password
     }).then((res) => {
       this._setSessionData(res.data, callback)
-    }, () => {
-      wx.hideLoading();
-      this.showToast("登陆失败！请检查网络")
+    }, (err) => {
+      if (err.statusCode === 402) {
+        this.showToast('用户名或密码错误')
+      } else {
+        wx.hideLoading();
+        this.showToast("登陆失败！请检查网络")
+      }
     })
   },
 

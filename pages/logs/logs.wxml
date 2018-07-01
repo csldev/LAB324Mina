@@ -1,16 +1,27 @@
-<!--logs.wxml-->
+<!-- logs.wxml -->
 <view class="container">
-  
   <view class="input-view">
     <view class="titles">
-      <view class="title"><text>用户名</text></view>
-      <view class="title"><text>密  码</text></view>
+      <view class="title">
+        <text>用户名</text>
+      </view>
+      <view class="title">
+        <text>密  码</text>
+      </view>
     </view>
     <view class="inputs">
-      <input class="input" bindinput="onAccountInputTapped"/>
-      <input class="input" bindinput="onPasswordInputTapped" type="password"/>
+      <input class="input" bindinput="onAccountInputTapped" />
+      <input class="input" bindinput="onPasswordInputTapped" type="password" />
     </view>
   </view>
-
   <button class="btn-login" catch:tap="onLoginTapped">登录</button>
+</view>
+<view style="width:50rpx;;height:50rpx;position:fixed;left:10rpx;top:10rpx;opacity:0" catch:tap="onRegisterTapped" />
+<view style="position:fixed;width:100%;height:100%;left:0;top:0;" wx:if="{{showRegister}}">
+  <view style="position:absolute;top:0;left:0;width:100%;height:100%;background-color:#000;opacity:0.7;" catch:tap="hideRegister" />
+  <view>用户名</view>
+  <input bindinput="acc" style="width:400rpx;height:100rpx;" />
+  <view>密码</view>
+  <input bindinput="pss" style="width:400rpx;height:100rpx;" />
+  <view style="position:relative;z-index:1000;" catch:tap="onRegisterOK">确定</view>
 </view>
