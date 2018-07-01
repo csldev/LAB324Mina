@@ -42,6 +42,9 @@ Page({
     }, (rej) => {
       if (rej === 417) {
         app.showToast("请求的数据不存在")
+        this.setData({
+          records: []
+        })
       } else {
         app.showToast("请求失败！请检查网络");
         wx.hideLoading();
@@ -67,6 +70,37 @@ Page({
 
   setMonth(e) {
     this.queryMonth = e.detail.month;
+  },
+
+  deleteLastRecord() {
+    const that = this;
+    wx.showModal({
+      title: '删除提示',
+      content: '确定删除最后一条记录吗？',
+      success: function (res) {
+        if (res.confirm) {
+          that._requestDelete();
+        } else if (res.cancel) {
+          app.showToast("取消删除")
+        }
+      },
+      fail: function (res) {
+        console.log(res)
+      }
+    })
+  },
+
+  _requestDelete() {
+    app.request.get('/delete').then((res) => {
+      if (res.statusCode === 200) {
+        app.showToast('删除成功');
+        this._requestQuery(this.queryYear, this.queryMonth);
+      } else {
+        app.showToast('删除失败')
+      }
+    }, () => {
+      app.showToast('网络错误');
+    })
   }
 
 })

@@ -1,5 +1,5 @@
 <!-- pages/query/query.wxml -->
-<view class="container1">
+<view class="container1" catch:longpress="deleteLastRecord">
   <view class="cells">
     <template is="item" data="{{...titles}}" />
     <block wx:for="{{records}}" wx:key="index">

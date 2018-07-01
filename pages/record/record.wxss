@@ -1,39 +1,40 @@
 /* pages/record/record.wxss */
 
-.input-view{
+.input-view {
   margin-top: 200rpx;
-  display:flex;
+  display: flex;
   flex-direction: row;
 }
 
-.title{
-  color:#333;
+.title {
+  color: #333;
   font-size: 40rpx;
   margin-top: 20rpx;
 }
 
-.inputs{
+.inputs {
   margin-left: 20rpx;
 }
 
-.input{
-  background:#eee;
-  width:400rpx;
-  height:44rpx;
-  margin-top:20rpx;
+.input {
+  background: #eee;
+  width: 400rpx;
+  height: 44rpx;
+  margin-top: 20rpx;
+  padding: 6rpx;
 }
 
-.btn-view{
+.btn-view {
   margin-top: 100rpx;
   display: flex;
   flex-direction: row;
-  width:81%;
+  width: 81%;
 }
 
-.btn{
+.btn {
   width: 25%;
-  height:60rpx;
-  color:#3454ff;
+  height: 60rpx;
+  color: #3454ff;
   font-size: 28rpx;
   margin: 20rpx;
   display: flex;

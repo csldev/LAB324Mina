@@ -1,10 +1,10 @@
 <!-- components/time-picker/time-picker.wxml -->
 <view class="container">
-    <view class="mask" catch:tap="hideModal"/>
+    <view class="mask" catch:tap="hideModal" />
     <view class="background" />
     <view class="rect-view">
         <view style="display:flex;flex-direction:column">
-            <view class="text">
+            <view class="text" catch:tap="onYIconTapped">
                 <text>{{currentYear}}</text>
             </view>
             <scroll-view class="items" scroll-y scroll-into-view="{{toViewYear}}" wx:if="{{openYearList}}">
@@ -21,7 +21,7 @@
         </view>
         <view style="width:40rpx" />
         <view style="display:flex;flex-direction:column">
-            <view class="text">
+            <view class="text" catch:tap="onMIconTapped">
                 <text>{{currentMonth}}</text>
             </view>
             <scroll-view class="items" scroll-y scroll-into-view="{{toViewMonth}}" wx:if="{{openMonthList}}">
